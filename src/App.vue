@@ -54,7 +54,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Hello, World!</h1>
+  <div class="page">
+    <div class="container">
+      <h1>The Task List</h1>
+      <Vueform size="lg" :endpoint="createTask">
+        <TextElement 
+          name="task" 
+          placeholder="Add a task" 
+          floating="Task name" 
+          rules="required" 
+        />
+        <RadiogroupElement 
+          name="type" 
+          :items="['Personal', 'Business']" 
+          view="tabs" 
+          default="Personal" 
+        />
+
+        <ButtonElement name="button" align="right" submits>Create</ButtonElement>
+      </Vueform>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
